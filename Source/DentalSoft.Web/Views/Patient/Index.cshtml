@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section js{
+    @Scripts.Render("~/bundles/Patients")
+   
+}
+
+@section styles{
+    @Styles.Render("~/Content/Patients")
+}
+
+@(Html.Kendo().Grid<DentalSoft.Data.Contracts.Patientes.PatientModel>()
+    .Name("PatientsGrid")
+    .Columns(columns =>
+    {  
+        columns.Bound(p => p.PersonalDataModel.FirstName).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+        columns.Bound(p => p.PersonalDataModel.SecondName).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+        columns.Bound(p => p.PersonalDataModel.LastName).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+        columns.Bound(p => p.PersonalDataModel.Telephone).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+        columns.Bound(p => p.PersonalDataModel.DentistInitials)
+            .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+             .ClientTemplate("<span title='#:PersonalDataModel.DentistInitials#'>#:PersonalDataModel.DentistInitials#</span>")
+            .Width(100);
+        columns.Bound(p => p.PersonalDataModel.HealthStatus).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false))).Width(200);
+
+
+
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+    })
+            .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("PatientModel"))
+
+    .ToolBar(toolbar => toolbar.Create().Text(Strings.Patient_NewPacient))
+    .Sortable()
+    .Pageable()
+         .Selectable()
+    .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+    .HtmlAttributes(new { @class = "patients-grid" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(10)
+        .Model(model =>
+            {
+                model.Id(x => x.Id);
+                model.Field(x => x.PersonalDataModel).DefaultValue(new DentalSoft.Data.Contracts.Patientes.PersonalDataModel { });
+                model.Field(x => x.FinancialPlanModel).DefaultValue(new DentalSoft.Data.Contracts.Patientes.FinancialPlanModel { });
+            })
+        .Create(create => create.Action("Create", "Patient"))
+                .Read(read => read.Action("Read", "Patient"))
+                .Update(update => update.Action("Update", "Patient"))
+                .Destroy(destroy => destroy.Action("Delete", "Patient"))
+                .Events(e =>
+                    {
+                        e.Error("error_handler");
+                        e.RequestEnd("onKendoGridRequestEnd");
+                    })
+    )
+)
+
+<script type="text/javascript">
+    $(function () {
+        new PatientView({
+            selectors: {
+                patientGridId: 'PatientsGrid',
+            },
+            urls: {
+            },
+            texts: {
+            }
+        }).start();
+    })
+</script>

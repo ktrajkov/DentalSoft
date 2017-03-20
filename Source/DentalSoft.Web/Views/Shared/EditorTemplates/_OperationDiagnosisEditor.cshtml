@@ -1,0 +1,49 @@
+﻿<script>
+    function onDiagnosisOpen(e) {
+        e.sender.list.width(350);
+    }
+
+    function additionalData() {
+        return { sortExpression: "Code" };
+    }
+
+    function onDiagnosisSelect(e) {
+        var operationDateTime = $("#operationDateTime").data("kendoDateTimePicker");
+        var dateTime = operationDateTime.value();
+        dateTime.setTimeByDate(new Date());
+        $("#DiagnosisDateTime").data("kendoDateTimePicker").value(dateTime);
+    }
+    function onDataBound(e) {
+        if (e.sender.value() === "0") {
+            e.sender.value("");
+        } else {
+            var treatmentComboBox = $("#OperationTreatment").data("kendoComboBox");
+            treatmentComboBox.dataSource.read();
+        }
+
+    }
+    function onChange(e) {
+        var treatmentComboBox = $("#OperationTreatment").data("kendoComboBox");
+        treatmentComboBox.text("");
+        treatmentComboBox.dataSource.read();
+        treatmentComboBox.open();
+    }   
+</script>
+
+@(Html.Kendo().ComboBoxFor(d => d)
+    .Name("OperationDiagnosis")
+    .DataTextField("Text")
+    .DataValueField("Value")
+    .DataSource(dataSource => dataSource
+        .Read(read => read.Action("List", "Diagnosis").Data("additionalData").Type(HttpVerbs.Post))
+        .ServerFiltering(true)
+
+        )
+    .Events(events =>
+        events.Open("onDiagnosisOpen")
+        .Select("onDiagnosisSelect")
+        .DataBound("onDataBound")
+        .Change("onChange"))
+    .HtmlAttributes(new { data_bind = "value: DiagnosisId" })
+)
+@(Html.ValidationMessageFor(d => d))

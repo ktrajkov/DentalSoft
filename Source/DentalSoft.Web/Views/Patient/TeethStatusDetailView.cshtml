@@ -1,0 +1,163 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-8-5">
+            <div id="teeth-status-chart"></div>
+        </div>
+        <div class="col-md-2 col-md-2-5">
+            <div id="tooth-images-container"></div>
+        </div>
+        <div class="col-md-1 col-md-1-2" id="toot-images-upload-container">
+            <input type="file" name="files" id="tooth-images-upload" />
+        </div>
+    </div>
+
+</div>
+
+<div id="operation-grid">
+                            @{
+        var grid = Html.Kendo().Grid<DentalSoft.Data.Contracts.Operation.OperationModel>()
+            .Name("Operation")
+            .Selectable()
+             .Scrollable(scr => scr.Height(350))
+            .Filterable()
+            .AutoBind(false)
+            .Resizable(x => x.Columns(true))
+
+            .Columns(columns =>
+            {
+                columns.Bound(o => o.Teeth)
+                    .EditorTemplateName("_OperationTeethEditor")
+                    .ClientTemplate("#=printTeeth(Teeth)#")
+                    .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                    .Width("10%");
+                columns.Bound(o => o.DiagnosisId)
+                  .EditorTemplateName("_OperationDiagnosisEditor")
+                  .ClientTemplate("<span title='#:DiagnosisName#'>#:DiagnosisName#</span>")
+                   .Width("15%");
+                columns.Bound(o => o.DiagnosisDateTime)
+                    .EditorTemplateName("_OperationDiagnosisTimeEditor")
+                    .ClientTemplate("#if(DiagnosisDateTime){#" + "<span title='#= kendo.toString(DiagnosisDateTime, kendo.culture().calendar.patterns.g) #'>#= kendo.toString(DiagnosisDateTime, kendo.culture().calendar.patterns.g) #</span>" + "#}else {#" + "" + "#}#")
+                    .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                    .Width(185);
+                columns.Bound(o => o.TreatmentId)
+                  .EditorTemplateName("_OperationTreatmentEditor")
+                  .ClientTemplate("#if(TreatmentName){#<span title='#:TreatmentName#'>#:TreatmentName#</span>#}#")
+                  .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                   .Width("15%");
+                columns.Bound(o => o.TreatmentDateTime)
+                    .EditorTemplateName("_OperationTreatmentTimeEditor")
+                    .ClientTemplate("#if(TreatmentDateTime){#" + "<span title='#= kendo.toString(TreatmentDateTime, kendo.culture().calendar.patterns.g) #'>#= kendo.toString(TreatmentDateTime, kendo.culture().calendar.patterns.g) #</span>" + "#}else {#" + "" + "#}#")
+                    .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                    .Width(185);
+                columns.Bound(o => o.Position)
+                 .EditorTemplateName("_OperationPositionEditor")
+                 .ClientTemplate("#if(PositionText){# #:PositionText# #}#")
+                 .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                .Width(110);
+                columns.Bound(o => o.Quantity)
+                .EditorTemplateName("_OperationQuantityEditor")
+                .ClientTemplate("#if(Quantity){#<span class='text-center center-block' >#:Quantity#</span>#}#")
+                .Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)))
+                .Width(60);
+                columns.Bound(o => o.AdditionalInfo)
+                .EditorTemplateName("_OperationAdditionalInfo")
+                .ClientTemplate("#if(AdditionalInfo){#<span title='#:AdditionalInfo#'>#:AdditionalInfo#</span>#}#")
+               .Width("10%");
+                columns.Bound(o => o.DentistId)
+                    .EditorTemplateName("_OperationDentistEditor")
+                    .ClientTemplate("#if(DentistName){#<span title='#:DentistName#'>#:DentistName#</span>#}#")
+                    .Width(65);
+                columns.Command(command => { command.Edit().Text(" ").UpdateText(" ").CancelText(" "); command.Destroy().Text(" "); }).Width(105);
+            })
+
+            .ToolBar(toolbar => toolbar.Create().Text(Strings.Treatment_NewTreatment))
+            .Filterable(ftb => ftb.Enabled(false))
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .Model(model =>
+                {
+                    model.Id(x => x.Id);
+                    model.Field(x => x.DiagnosisId);
+                    model.Field(x => x.Quantity).DefaultValue(1);
+                    model.Field(x => x.Teeth).DefaultValue(new List<DentalSoft.Data.Contracts.Teeth.ToothModel>());
+                })
+                .Sort(sort =>
+                {
+                    sort.Add(x => x.DiagnosisDateTime).Descending();
+                    sort.Add(x => x.TreatmentDateTime).Descending();
+                })
+                .Create(create => create.Action("Create", "Operation"))
+                .Read(read => read.Action("Read", "Operation"))
+                .Update(update => update.Action("Update", "Operation"))
+                .Destroy(destroy => destroy.Action("Delete", "Operation"))
+                .Events(e =>
+                {
+                    e.Error("error_handler");
+                    e.RequestEnd("onKendoGridRequestEnd");
+                })
+           );
+                            }
+    @if (@ViewContext.RouteData.Values["action"].ToString() != "Edit")
+    {
+        @grid.ToClientTemplate()
+    }
+    else
+    {
+        @grid
+    }
+</div>
+<script type="text/javascript">
+    function printTeeth(data) {
+        var result = "";
+        var j = data.length;
+        for (var i = 0; i < j; i++) {
+            result += data[i].Number;
+            if (i < j - 1) {
+                result += ", ";
+            }
+        }
+        return '<span title="' + result + '">' + result + '</span>';
+    }
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        new TeethStatusView({
+            selectors: {
+                teethStatusChartId: 'teeth-status-chart',
+                operationGrid: 'Operation',
+                toothId: 'OperationTeeth',
+                diagnosisId: 'OperationDiagnosis',
+                treatmentId: 'OperationTreatment',
+                diagnosisDateTimeId: 'DiagnosisDateTime',
+                treatmentDateTimeId: 'TreatmentDateTime',
+                positionId: 'OperationPosition',
+                dentistId: 'OperationDentist',
+                toothImage: 'tooth-image',
+                toothImagesId: 'tooth-images-container',
+                toothImagesUploadId: 'tooth-images-upload',
+                toothImagesUploadContainerId: 'toot-images-upload-container',
+                teethStatusTab: 'teeth-status-tab',
+            },
+            settings: {
+                imageSliderWidth: '200',
+                imageSliderHeight: '262',
+                imageSliderImgWidth: '150'
+            },
+            urls: {
+                imageSave: '@(Url.Action("Save","Images"))',
+                imageList: '@(Url.Action("List","Images"))',
+                imageRemove: '@(Url.Action("Remove","Images"))',
+                teethWithImage: '@(Url.Action("GetTeethWithImages", "Images"))',
+            },
+            texts: {
+                uploadButton: '+',
+                filterByTeeth: "@Strings.TeethStatus_FilterByTeeth"
+            },
+            imageType: {
+                tooth: "Tooth"
+            }
+        }).start();
+    });
+</script>

@@ -1,0 +1,22 @@
+﻿@using DentalSoft.Web.Controllers;
+@model IEnumerable<DentalSoft.Data.Contracts.Dentists.DentistModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container wrap-doctors">
+    <div class="inner-wrap-doctors">
+        @foreach (var dentist in Model)
+        {
+            <div class="wrap-thumbnail">
+                <a href="#" class="thumbnail">
+                    <img src=@dentist.ImageUrl alt=@dentist.FirstName>
+                </a>
+                <div class="text-center"><h3>@dentist.FirstName @dentist.LastName</h3></div>
+            </div>
+        }       
+        <div class="btn-admin">
+            <button onclick="location.href='@(Url.Action<AdminController>(c => c.Index()))'" class=" k-button"><h3>@Strings.Administration</h3></button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,67 @@
+﻿@model DentalSoft.Data.Contracts.Status.GeneralStatusModel
+
+<div id="generalStatusFormId">   
+    <div class="container">
+        <div class="row h4">
+            Анамнеза
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.Hipertonia)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.Hipertonia)
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.Bremennost)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.Bremennost)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.Diabet)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.Diabet)
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.Infarct)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.Infarct)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.OnkologichniZab)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.OnkologichniZab)
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.Insult)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.Insult)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.Alergii)
+            </div>
+            <div class="col-md-1">
+                @Html.Kendo().CheckBoxFor(m => m.Alergii)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(l => l.AdditionalInfo)
+            </div>
+            <div class="col-md-4">
+                <textarea id="GeneralStatusModel_AdditionalInfo" data-bind="value: GeneralStatusModel.AdditionalInfo"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

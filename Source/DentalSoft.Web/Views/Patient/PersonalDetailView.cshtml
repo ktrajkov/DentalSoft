@@ -1,0 +1,229 @@
+﻿@model DentalSoft.Data.Contracts.Patientes.PersonalDataModel
+
+@using DentalSoft.Data.Models.PersonalInfo;
+@using DentalSoft.Web.Infrastructure.Extensions;
+
+<form id="personal-form">
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                @Html.HiddenFor(x => x.AddressId)
+                @Html.HiddenFor(x => x.Id)
+                @Html.LabelFor(l => l.FirstName)
+                <br />
+                @Html.Kendo().TextBoxFor(x => x.FirstName).HtmlAttributes(new { data_bind = "value:FirstName" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.SecondName)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.SecondName).HtmlAttributes(new { data_bind = "value:SecondName" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.LastName)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.LastName).HtmlAttributes(new { data_bind = "value:LastName" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.EGN)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.EGN).HtmlAttributes(new { @class = "egn", data_bind = "value:EGN" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.Age)
+                <br />
+                @Html.Kendo().NumericTextBoxFor(m => m.Age).Format("n0").HtmlAttributes(new { data_bind = "value:Age" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.Gender)
+                <br />
+                @(Html.Kendo().DropDownList()
+                            .Name("Gender")
+                            .HtmlAttributes(new { data_bind = "value:Gender" })
+                            .DataTextField("Text")
+                            .DataValueField("Value")
+                            .BindTo(typeof(Gender).EnumToSelectList()))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.AddressRegionId)
+                <br />
+                <input id="AddressRegionId" data-bind="value: AddressRegionId" />
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.AddressMunicipalityId)
+                <br />
+                <input id="AddressMunicipalityId" data-bind="value: AddressMunicipalityId" />
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.AddressLocationId)
+                <br />
+                <input id="AddressLocationId" data-bind="value: AddressLocationId" />
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.Nationality)
+                @(Html.Kendo().DropDownList()
+                      .Name("Nationality")
+                      .HtmlAttributes(new { data_bind = "value:Nationality" })
+                      .DataTextField("Text")
+                      .DataValueField("Value")
+                              .BindTo(typeof(Nationality).EnumToSelectList()))
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.AddressStreet)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressStreet).HtmlAttributes(new { data_bind = "value:AddressStreet" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.AddressNumberStreet)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressNumberStreet).HtmlAttributes(new { data_bind = "value: AddressNumberStreet" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.AddressResidentialQuarter)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressResidentialQuarter).HtmlAttributes(new { data_bind = "value:AddressResidentialQuarter" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.AddressBuilding)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressBuilding).HtmlAttributes(new { data_bind = "value:AddressBuilding" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.AddressEntrance)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressEntrance).HtmlAttributes(new { data_bind = "value:AddressEntrance" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.AddressFloor)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressFloor).HtmlAttributes(new { data_bind = "value:AddressFloor" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.AddressApt)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressApt).HtmlAttributes(new { data_bind = "value:AddressApt" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.AddressZipCode)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.AddressZipCode).HtmlAttributes(new { data_bind = "value:AddressZipCode" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.MobileTelephonе)
+                <br />
+                @Html.Kendo().TextBox().Name("MobileTelephonе").HtmlAttributes(new { data_bind = "value:MobileTelephonе" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.Telephone)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.Telephone).HtmlAttributes(new { data_bind = "value:Telephone" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.Fax)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.Fax).HtmlAttributes(new { data_bind = "value:Fax" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.Email)
+                <br />
+                @Html.Kendo().TextBoxFor(m => m.Email).HtmlAttributes(new { data_bind = "value:Email" })
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.DentistId)
+                @(Html.Kendo().DropDownList()
+                    .Name("DentistId")
+                    .HtmlAttributes(new { data_bind = "value:DentistId" })
+                    .OptionLabel(Strings.Select)
+                    .DataTextField("Text")
+                    .DataValueField("Value")
+                    .DataSource(dataSource => dataSource
+                        .Read(read => read.Action("List", "Dentist").Type(HttpVerbs.Post))
+                        )
+                )
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(l => l.LastDentist)
+                @Html.Kendo().TextBoxFor(m => m.LastDentist).HtmlAttributes(new { data_bind = "value:LastDentist" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.GP)
+                @Html.Kendo().TextBoxFor(m => m.GP).HtmlAttributes(new { data_bind = "value:GP" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(l => l.HealthStatus)
+                @(Html.Kendo().DropDownList()
+                .Name("HealthStatus")
+                .HtmlAttributes(new { data_bind = "value:HealthStatus" })
+                .DataTextField("Text")
+                .DataValueField("Value")
+                        .BindTo((typeof(HealthStatus).EnumToSelectList())))
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(l => l.NextMedicalCheckUp)
+                <br />
+                @Html.Kendo().NumericTextBoxFor(m => m.NextMedicalCheckUp).Format("n0").HtmlAttributes(new { data_bind = "value:NextMedicalCheckUp" })
+
+            </div>
+            <div class="col-md-2 primary-patient-container">
+                <input type="checkbox" id="PrimaryPatient" class="k-checkbox" value="PrimaryPatient" data-bind=" checked: PrimaryPatient" />
+                <label class="k-checkbox-label small-label-checkbox" for="PrimaryPatient">@Strings.PersonalData_PrimaryPatient</label>
+            </div>
+          
+        </div>
+        <div class="row">
+            <div class="col-md-2 pull-right">
+                <input type="checkbox" id="HasDeciduousTeeth" class="k-checkbox" value="HasDeciduousTeeth" data-bind=" checked: HasDeciduousTeeth" />
+                <label class="k-checkbox-label small-label-checkbox" for="HasDeciduousTeeth">@Strings.PersonalData_HasDeciduousTeeth</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1-5">
+                <button class="k-button k-button-icontext k-primary" type="submit">
+                    <span class="k-icon k-update"></span>@Strings.Save
+                </button>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+
+<script type="text/javascript">
+    new PersonalDatatView({
+        selectors: {
+            formId: 'personal-form',
+            patientGridId: 'PatientsGrid',
+            regionId: 'AddressRegionId',
+            municipalityId: 'AddressMunicipalityId',
+            locationId: 'AddressLocationId',
+            dentistId: 'DentistId'
+        },
+        urls: {
+            regionList: '@Url.Action("List","Region")',
+            municipalityList: '@Url.Action("List","Municipality")',
+            locationList: '@Url.Action("List","Location")',
+            patientSave: '@Url.Action("Update","Patient")',
+        },
+        texts: {
+            selectRegion: '@Strings.PersonalDataModel_SelectRegion',
+            selectMunicipality: '@Strings.PersonalDataModel_SelectMunicipality',
+            selectLocatio: '@Strings.PersonalDataModel_SelectLocation'
+
+        },
+        settings: {
+            nextMedicalCheckUp: 6,
+        }
+    }).start();
+</script>

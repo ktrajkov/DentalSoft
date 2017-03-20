@@ -1,0 +1,254 @@
+﻿@using DentalSoft.Data.Models.DailyPlannings;
+@using DentalSoft.Web.Infrastructure.Extensions;
+
+@model DentalSoft.Data.Contracts.Patientes.PersonalDataModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section js {
+    @Scripts.Render("~/Scripts/Views/Plan/PlanView.js")
+}
+<div id="filter-scheduler"></div>
+<div id="scheduler"></div>
+<div id="new-patient-window">
+    <form id="new-patient-form">
+        @Html.LabelFor(l => l.FirstName)
+        <br />
+        @Html.Kendo().TextBoxFor(x => x.FirstName).HtmlAttributes(new { data_bind = "value:FirstName" })
+        <br />
+        @Html.LabelFor(l => l.SecondName)
+        <br />
+        @Html.Kendo().TextBoxFor(m => m.SecondName).HtmlAttributes(new { data_bind = "value:SecondName" })
+        <br />
+        @Html.LabelFor(l => l.LastName)
+        <br />
+        @Html.Kendo().TextBoxFor(m => m.LastName).HtmlAttributes(new { data_bind = "value:LastName" })
+        <br />
+        @Html.LabelFor(l => l.EGN)
+        <br />
+        @Html.Kendo().TextBoxFor(m => m.EGN).HtmlAttributes(new { @class = "egn", data_bind = "value:EGN" })
+        <br />
+        @Html.LabelFor(l => l.Telephone)
+        <br />
+        @Html.Kendo().TextBoxFor(m => m.Telephone).HtmlAttributes(new { data_bind = "value:Telephone" })
+        <br />
+        @Html.LabelFor(l => l.DentistId)
+        @(Html.Kendo().DropDownList()
+                    .Name("DentistId")
+                    .HtmlAttributes(new { data_bind = "value:DentistId" })
+                    .DataTextField("Text")
+                    .DataValueField("Value")
+                    .DataSource(dataSource => dataSource
+                        .Read(read => read.Action("List", "Dentist").Type(HttpVerbs.Post))
+                        )
+
+        )
+        <br /><br />
+        <div id="personal-save-button" class="pull-right">
+            <button class="k-button k-button-icontext k-primary">
+                <span class="k-icon k-update"></span>@Strings.Save
+            </button>
+        </div>
+    </form>
+</div>
+
+<script id="item-template" type="text/x-kendo-template">
+    <div class="plan-template  #if(typeof(StatusName) != 'undefined'){# #=StatusName# #}#">
+        #if(typeof(PatientName) != "undefined" && PatientName ){#<div class="item-patient" type='text' title='#= PatientName #'>#= PatientName #</div>#}#
+        #if(mode === '@Strings.Plan_Day' && phone){#<div class="item-phone" type='text' title='#= phone #'>#= phone #</div>#}#
+        #if(typeof(PatientName) != "undefined"){#<div class="item-title" type='text' title='#= title #'>#= title #</div>#}#
+    </div>
+</script>
+
+<script id="edit-template" type="text/x-kendo-template">
+    <div class="k-edit-form-container edit-plan-template">
+
+        <div class="k-edit-label">
+            <label for="patinet">@Strings.Patient</label>
+        </div>
+        <div id="patinent-link-container" data-container-for="patient" class="k-edit-field">
+            <input id="patient" name="patien" data-bind="value: PatientId" />
+            <button id="new-patient" class="k-button k-button-icontext k-grid-add"><span class="k-icon k-add"></span>@Strings.Plan_NewPatient</button>
+        </div>
+        <div class="k-edit-label">
+            <label for="phone">@Strings.Phone</label>
+        </div>
+        <div data-container-for="phone" class="k-edit-field">
+            <input type="text" name="description" class="k-textbox" data-bind="value:phone" readonly="readonly" />
+        </div>
+        <div class="k-edit-label">
+            <label for="title">@Strings.Title</label>
+        </div>
+        <div data-container-for="title" class="k-edit-field">
+            <input type="text" class="k-input k-textbox" name="title" required title="@Strings.Plan_RequiredField" data-bind="value:title">
+        </div>
+        <div class="k-edit-label">
+            <label for="start">@Strings.Start</label>
+        </div>
+        <div data-container-for="start" class="k-edit-field">
+            <span class="k-widget k-datetimepicker k-header" style="">
+                <span class="k-picker-wrap k-state-default">
+                    <input type="text" required="" data-type="date" data-role="datetimepicker" data-bind="value:start,invisible:isAllDay" data-validate="true" name="start" class="k-input" role="combobox" aria-expanded="false" aria-disabled="false" aria-readonly="false" style="width: 100%;">
+                    <span unselectable="on" class="k-select">
+                        <span unselectable="on" class="k-icon k-i-calendar" role="button">select</span>
+                        <span unselectable="on" class="k-icon k-i-clock" role="button">select</span>
+                    </span>
+                </span>
+            </span><span class="k-widget k-datepicker k-header" style="display: none;">
+                <span class="k-picker-wrap k-state-default">
+                    <input type="text" required="" data-type="date" data-role="datepicker" data-bind="value:start,visible:isAllDay" data-validate="false" name="start" class="k-input" role="combobox" aria-expanded="false" aria-disabled="false" aria-readonly="false" style="width: 100%;">
+                    <span unselectable="on" class="k-select" role="button">
+                        <span unselectable="on" class="k-icon k-i-calendar">select</span>
+                    </span>
+                </span>
+            </span><span data-bind="text: startTimezone"></span><span data-for="start" class="k-invalid-msg" style="display: none;"></span>
+        </div>
+        <div class="k-edit-label">
+            <label for="end">@Strings.End</label>
+        </div>
+        <div data-container-for="end" class="k-edit-field">
+            <span class="k-widget k-datetimepicker k-header" style=""><span class="k-picker-wrap k-state-default"><input type="text" required="" data-type="date" data-role="datetimepicker" data-bind="value:end,invisible:isAllDay" data-validate="true" name="end" data-datecompare-msg="End date should be greater than or equal to the start date" class="k-input" role="combobox" aria-expanded="false" aria-disabled="false" aria-readonly="false" style="width: 100%;"><span unselectable="on" class="k-select"><span unselectable="on" class="k-icon k-i-calendar" role="button">select</span><span unselectable="on" class="k-icon k-i-clock" role="button">select</span></span></span></span><span class="k-widget k-datepicker k-header" style="display: none;"><span class="k-picker-wrap k-state-default"><input type="text" required="" data-type="date" data-role="datepicker" data-bind="value:end,visible:isAllDay" data-validate="false" name="end" data-datecompare-msg="End date should be greater than or equal to the start date" class="k-input" role="combobox" aria-expanded="false" aria-disabled="false" aria-readonly="false" style="width: 100%;"><span unselectable="on" class="k-select" role="button"><span unselectable="on" class="k-icon k-i-calendar">select</span></span></span></span><span data-bind="text: endTimezone"></span><span data-bind="text: startTimezone, invisible: endTimezone"></span><span data-for="end" class="k-invalid-msg" style="display: none;"></span>
+        </div>
+
+        <div class="k-edit-label">
+            <label for="description">@Strings.Description</label>
+        </div>
+        <div data-container-for="description" class="k-edit-field">
+            <textarea name="description" class="k-textbox" data-bind="value:description"></textarea>
+        </div>
+        <div class="k-edit-label">
+            <label for="dentist">@Strings.Dentist</label>
+        </div>
+        <div data-container-for="title" class="k-edit-field">
+            <input id="dentist" style="width: 100%;" data-bind="value: DentistId" />
+        </div>
+        <div class="k-edit-label">
+            <label for="dentist">@Strings.Status</label>
+        </div>
+        <div data-container-for="Status" class="k-edit-field">
+            @(Html.Kendo().DropDownList()
+            .Name("PlanItemStatus")
+            .Height(220)
+            .ValuePrimitive(true)
+            .HtmlAttributes(new { data_bind = "value: Status" })
+            .DataValueField("Value")
+            .DataTextField("Text")
+            .BindTo(typeof(StatusType).EnumToSelectList())
+            .ToClientTemplate()
+            )
+        </div>
+
+        <div class="k-edit-label">
+            <label for="patient-link">@Strings.Patient</label>
+        </div>
+        <div id="patient-link" data-container-for="title" class="k-edit-field k-button">
+            <a class="" style="width: 100%;" href='@Url.Action("Edit","Patient")' /><span class="glyphicon glyphicon-user"></span>
+        </div>
+
+    </div>
+</script>
+<script id="filter-status-template" type="text/x-kendo-template">
+    <span class="status-container">
+        @(Html.Kendo().DropDownList()
+               .OptionLabel(new
+               {
+                   Text = @Strings.Status,
+                   Value = ""
+               })
+            .Name("FilterStatus")
+            .Height(300)
+            .ValuePrimitive(true)
+            .DataValueField("Value")
+            .DataTextField("Text")
+            .BindTo(typeof(StatusType).EnumToSelectList())
+            .ToClientTemplate()
+        )
+    </span>
+</script>
+<script type="text/javascript">
+    $(function () {
+        new PlanView({
+            selectors: {
+                scheduler: 'scheduler',
+                allDayEventTemplate: 'allDay-item-template',
+                itemTemplate: 'item-template',
+                planTemplate: 'plan-template',
+                editTemplate: 'edit-template',
+                patient: 'patient',
+                dentist: 'dentist',
+                status: 'PlanItemStatus',
+                patientLink: 'patient-link',
+                newPatientButton: 'new-patient',
+                filterScheduler: 'filter-scheduler',
+                filterStatusTemplate: 'filter-status-template',
+                filterStatus: 'FilterStatus',
+                newPatientWindow: 'new-patient-window',
+                newPatientForm: 'new-patient-form',
+                newPatientSaveButton: 'personal-save-button',
+                newPatientDentist: "DentistId"
+
+            },
+            urls: {
+                planRead: '@(Url.Action("Read","Plan"))',
+                planCreate: '@(Url.Action("Create","Plan"))',
+                planUpdate: '@(Url.Action("Update","Plan"))',
+                planDelete: '@(Url.Action("Delete","Plan"))',
+                patientList: '@(Url.Action("List","Patient"))',
+                patientPlan: '@(Url.Action("GetPatientPlan", "Patient"))',
+                patientCreate: '@(Url.Action("Update", "Patient"))',
+                dentistList: '@(Url.Action("List","Dentist"))',
+                patientEdit: '@(Url.Action("Edit","Patient"))',
+            },
+            texts: {
+                select: '@Strings.Select',
+                day: '@Strings.Plan_Day',
+                workWeek: '@Strings.Plan_WorkWeek',
+                week: '@Strings.Plan_Week',
+                month: '@Strings.Plan_Month',
+                agenda: '@Strings.Plan_Agenda',
+                timeline: '@Strings.Plan_Timeline',
+                searchPatientPlaceHolder: '@Strings.Patient',
+                searchStatusPlaceHolder: '@Strings.Status',
+                viewMount: '@Strings.Plan_Month',
+                newPatient: '@Strings.Patient_NewPacient',
+            },
+            settings: {
+                schedulerHeight: '750',
+                workDayStart: '2013/1/1 08:00 AM',
+                workDayStartWithPatiens: '2013/1/1 09:00 AM',
+                workDayEnd: '2013/1/1 07:00 PM',
+                startBreak: '12:30',
+                endBreak: '13:00',
+            },
+            colors: {
+                byDentists: [{},
+                    {
+                        Background: "#FF995F",
+                        Text: "#000"
+                    },
+                    {
+                        Background: "#51a0ed",
+                        Text: "#000"
+                    },
+                ],
+                unbooked: {
+                    Background: "#FFEB3B",
+                    Text: "#000"
+                },
+                reminder: {
+                    Background: "#D12121",
+                    Text: "#fff"
+                },
+                completed: {
+                    Background: "#D6D7D5",
+                    Text: "#000"
+                },
+                byDefault: {
+                    Background: "#7FDC39",
+                    Text: "#000"
+                },
+            },
+        }).start();
+    })
+</script>

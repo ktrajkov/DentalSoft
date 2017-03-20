@@ -1,0 +1,14 @@
+﻿<div class="image-gallery-container">
+    <input type="file" name="files" class="upload-button" />
+    <div class="image-gallery">
+        <div class="image-galery-list-view"> </div>
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="image-gallery-template">
+    <li>
+        <img class="pics" src="/#= ImageUrl #" data-glisse-big="/#= ImageUrl #" title="#= ImageUrl #" />
+    </li>
+    <span class="glyphicon glyphicon-trash delete-button"></span>
+</script>
+

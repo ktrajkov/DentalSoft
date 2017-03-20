@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Treatment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/Views/Treatments/TreatmentView.js"></script>
+<script src="~/Scripts/Views/ToothChart/ToothChartEditorView.js"></script>
+
+
+<div class="vertical-splitter">
+
+    <div id="diagnoses-listView"></div>
+    <div id="treatment-grid">
+        @(Html.Kendo().Grid<DentalSoft.Data.Contracts.Treatments.TreatmentModel>()
+        .AutoBind(false)
+        .Name("TreatmentGrid")
+        .Columns(columns =>
+        {
+            columns.Bound(d => d.Code).Width(50);
+            columns.Bound(d => d.Description);
+            columns.Bound(d => d.Price).Width(80);
+            columns.Bound(d => d.IsVisible).Filterable(false)
+                .ClientTemplate(
+                "<input type='checkbox' disabled='disabled' value='#= IsVisible #' " +
+                    " # if (IsVisible) { #" +
+                        "checked='checked'" +
+                        "# } #" +
+                        " />").Width(30);
+            columns.Bound(d => d.ToothEditorModel).Filterable(false)
+                .EditorTemplateName("_ToothChartEditor")
+                .ClientTemplate("#=toothChartTemplate(data)#")
+                .Width(250);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        })
+
+        .ToolBar(toolbar => toolbar.Create().Text(Strings.Treatment_NewTreatment))
+        .Sortable()
+        .Pageable()
+        .HtmlAttributes(new { @class = "" })
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(10)
+        .Model(model =>
+        {
+            model.Id(x => x.Id);
+            model.Field(x => x.ToothEditorModel).DefaultValue(new DentalSoft.Data.Contracts.Status.TeethStatus.ToothEditorModel());
+
+        })
+        .Create(create => create.Action("Create", "Treatment"))
+                .Read(read => read.Action("Read", "Treatment"))
+                .Update(update => update.Action("Update", "Treatment"))
+                .Destroy(destroy => destroy.Action("Delete", "Treatment"))
+        .Events(e =>
+        {
+            e.Error("error_handler");
+            e.RequestEnd("onKendoGridRequestEnd");
+        })
+        )
+        )
+    </div>
+</div>
+
+<script type="text/x-kendo-tmpl" id="template-listView">
+    <div class="product">
+        <div><span>${Code}</span> - <span>${Descrtiption}</span></div>
+    </div>
+</script>
+
+<script id="tooth-chart-template" type="text/x-kendo-template">
+    <div class="text-center">
+        #if(ToothEditorModel){#
+        #= ToothEditorModel.ChartTypeText ? ToothEditorModel.ChartTypeText : '' #
+        #= ToothEditorModel.ChartTypeText && ToothEditorModel.ColorTypeText?' | ':''#
+        #= ToothEditorModel.ColorTypeText ?ToothEditorModel.ColorTypeText: '' #
+        #}#
+    </div>
+</script>
+
+<script type="text/javascript">
+    var toothChartTemplate = kendo.template($('#tooth-chart-template').html());
+
+    $(function () {
+        new TreatmentView({
+            selectors: {
+                diagnosesTabId: 'diagnoses-listView',
+                treatmentGridId: 'TreatmentGrid',
+                treatmentGridContainerId: 'treatment-grid',
+                templateId: 'template-listView',
+                splitterClass: 'vertical-splitter'
+            },
+            urls: {
+                diagnoses: '@(Url.Action("Read","Diagnosis"))',
+            },
+            texts: {
+            },
+            settings: {
+                splitterLeftPaneWidth: '300px'
+            },
+        }).start();
+
+        new ToothChartEditorView({
+            selectors: {
+                grid: 'TreatmentGrid',
+            },
+
+        }).start();
+    })
+</script>

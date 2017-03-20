@@ -1,0 +1,32 @@
+﻿@model DentalSoft.Data.Contracts.Status.TeethStatus.ToothEditorModel
+
+@using DentalSoft.Web.Infrastructure.Extensions;
+@using DentalSoft.Data.Models.Status.TeethStatus;
+@using DentalSoft.Data.Models.Operation;
+
+<script>
+    function onTypeOpen(e) {
+        e.sender.list.width(185);
+    }  
+</script>
+<div class="row tooth-chart-editor">
+    <div class=" col-md-6">
+        @(Html.Kendo().DropDownListFor(t => t.Type)
+            .ValuePrimitive(true)
+            .DataValueField("Value")
+            .DataTextField("Text")
+            .OptionLabel(new { Text = "", Value = -1 })
+            .BindTo(typeof(ChartType).EnumToSelectList())
+            .Events(events => events.Open("onTypeOpen"))
+        )
+    </div>
+    <div class=" col-md-6">
+        @(Html.Kendo().DropDownListFor(t => t.Color)
+            .ValuePrimitive(true)
+            .DataValueField("Value")
+            .DataTextField("Text")
+            .OptionLabel(new { Text = "", Value = -1 })
+            .BindTo(typeof(ColorType).EnumToSelectList())
+        )
+    </div>
+</div>

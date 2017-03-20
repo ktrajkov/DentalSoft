@@ -1,0 +1,41 @@
+﻿@model DentalSoft.Data.Contracts.Patientes.FinancialPlanModel
+
+<form id="financial-form">
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.HiddenFor(x => x.Id)
+                @(Html.Kendo().EditorFor(x => x.Text)
+                .HtmlAttributes(new { data_bind = "value:Text" })
+                .Name("FinancialPlanEditor")
+                .Tools(tools => tools.Clear()
+                    .Bold().Italic().Underline().Strikethrough()
+                    .FontSize().FontColor().BackColor()
+                    .JustifyLeft().JustifyCenter().JustifyRight().JustifyFull()
+                    .InsertUnorderedList().InsertOrderedList().Indent().Outdent()
+                    .TableEditing()
+                ))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1-5">
+                <button class="k-button k-button-icontext k-primary" type="submit">
+                    <span class="k-icon k-update"></span>@Strings.Save
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    new FinancialPlanView({
+        selectors: {
+            formId: 'financial-form',
+            financialPlanEditor: 'FinancialPlanEditor',
+        },
+        urls: {
+            patientSave: '@Url.Action("Update","Patient")',
+        },
+    }).start();
+</script>

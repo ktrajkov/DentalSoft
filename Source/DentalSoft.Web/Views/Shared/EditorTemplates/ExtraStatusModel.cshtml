@@ -1,0 +1,172 @@
+﻿@model DentalSoft.Data.Contracts.Status.ExtraStatusModel
+
+<div id="extraStatusFormId">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="row nested-row">
+                    <div class="col-md-7 ">
+                        @Html.LabelFor(l => l.RVL)
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Kendo().CheckBoxFor(m => m.RVL)
+                    </div>
+                </div> @*РЛВ*@
+                <div class="row nested-row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.Label(Strings.ExtraStatus_Stavi)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_Loksacia)
+                            </div>
+                            <div class="col-md-1">
+                                <span class="h4 upper-checkbox-label">@Strings.ShortLeft</span>
+                                @Html.Kendo().CheckBoxFor(m => m.LoksaciaL)
+                            </div>
+                            <div class="col-md-1">
+                                <span class="h4 upper-checkbox-label">@Strings.ShortRight</span>
+                                @Html.Kendo().CheckBoxFor(m => m.LoksaciaR)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_SubLoksacia)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.SubLoksaciaL)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.SubLoksaciaR)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_Artroza)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.ArtrozaL)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.ArtrozaR)
+                            </div>
+                        </div>
+                    </div>
+                </div>@*Стави*@
+                <div class="row nested-row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.Label(Strings.ExtraStatus_NTrigeminus, Strings.ExtraStatus_NTrigeminus)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_TParastezia)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.TParastezia)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_TPareza)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.TPareza)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.Label(Strings.ExtraStatus_NFacialis, Strings.ExtraStatus_NFacialis)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_TParastezia)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.FParastezia)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                @Html.Label(Strings.ExtraStatus_TPareza)
+                            </div>
+                            <div class="col-md-1">
+                                @Html.Kendo().CheckBoxFor(m => m.FPareza)
+                            </div>
+                        </div>
+                    </div>
+                </div>@*Н.Тригеминус*@
+            </div>
+            <div class="col-md-6">
+                <div class="row nested-row">
+                    <div class="col-md-12">
+                        <div class="row nested-row">
+                            <div class="col-md-12">
+                                @Html.Label(Strings.ExtraStatus_Simetria)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 ">
+                                @Html.LabelFor(l => l.LicevaSimetria)
+                            </div>
+                            <div class="col-md-4">
+                                @Html.Kendo().CheckBoxFor(m => m.LicevaSimetria)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-2">
+                                <textarea id="ExtraStatusModel_LicevaSimetriaInfo" data-bind="value: ExtraStatusModel.LicevaSimetriaInfo"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 ">
+                                @Html.LabelFor(l => l.Koja)
+                            </div>
+                            <div class="col-md-4">
+                                @Html.Kendo().CheckBoxFor(m => m.Koja)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-2">
+                                <textarea id="ExtraStatusModel_KojaInfo" data-bind="value: ExtraStatusModel.KojaInfo"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 ">
+                                @Html.LabelFor(l => l.Ustni)
+                            </div>
+                            <div class="col-md-4">
+                                @Html.Kendo().CheckBoxFor(m => m.Ustni)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-2">
+                                <textarea id="ExtraStatusModel_UstniInfo" data-bind="value: ExtraStatusModel.UstniInfo"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 ">
+                                @Html.LabelFor(l => l.TDM)
+                            </div>
+                            <div class="col-md-4">
+                                @Html.Kendo().CheckBoxFor(m => m.TDM)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-2">
+                                <textarea id="ExtraStatusModel_TDMInfo" data-bind="value: ExtraStatusModel.TDMInfo"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

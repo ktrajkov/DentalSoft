@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PersonalData_Apt" xml:space="preserve">
+    <value>Ап.</value>
+  </data>
+  <data name="PersonalData_Building" xml:space="preserve">
+    <value>Блок</value>
+  </data>
+  <data name="PersonalData_DateOfBirth" xml:space="preserve">
+    <value>Дата раждане</value>
+  </data>
+  <data name="PersonalData_EGN" xml:space="preserve">
+    <value>ЕГН</value>
+  </data>
+  <data name="PersonalData_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="PersonalData_Entrance" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="PersonalData_Fax" xml:space="preserve">
+    <value>Факс</value>
+  </data>
+  <data name="PersonalData_FirstName" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="PersonalData_Floor" xml:space="preserve">
+    <value>Етаж</value>
+  </data>
+  <data name="PersonalData_Gender" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="PersonalData_GP" xml:space="preserve">
+    <value>GP</value>
+  </data>
+  <data name="PersonalData_HealthStatus" xml:space="preserve">
+    <value>Осигурен</value>
+  </data>
+  <data name="PersonalData_LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="PersonalData_Location" xml:space="preserve">
+    <value>Населено място</value>
+  </data>
+  <data name="PersonalData_MobileTelephone" xml:space="preserve">
+    <value>Мобилен телефон</value>
+  </data>
+  <data name="PersonalData_Municipality" xml:space="preserve">
+    <value>Община</value>
+  </data>
+  <data name="PersonalData_Nationality" xml:space="preserve">
+    <value>Гражданство</value>
+  </data>
+  <data name="PersonalData_NumberStreet" xml:space="preserve">
+    <value>No:</value>
+  </data>
+  <data name="PersonalData_PrimaryPatient" xml:space="preserve">
+    <value>Първичен пациент</value>
+  </data>
+  <data name="PersonalData_Region" xml:space="preserve">
+    <value>Област</value>
+  </data>
+  <data name="PersonalData_ResidentialQuarter" xml:space="preserve">
+    <value>Квартал</value>
+  </data>
+  <data name="PersonalData_SecondName" xml:space="preserve">
+    <value>Презиме</value>
+  </data>
+  <data name="PersonalData_Street" xml:space="preserve">
+    <value>Улица</value>
+  </data>
+  <data name="PersonalData_Telephone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="PersonalData_ZipCode" xml:space="preserve">
+    <value>Пощ. код</value>
+  </data>
+  <data name="PersonalData_Age" xml:space="preserve">
+    <value>Години</value>
+  </data>
+  <data name="PersonalDataModel_FirstNameRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="PersonalDataModel_LastNameRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="PersonalDataModel_EmailIsInvalidErrorMessage" xml:space="preserve">
+    <value>E-mail адреса е с невалиден формат</value>
+  </data>
+  <data name="GeneralStatus_AdditionalInfo" xml:space="preserve">
+    <value>Доп. информация</value>
+  </data>
+  <data name="GeneralStatus_Alergii" xml:space="preserve">
+    <value>Алергии</value>
+  </data>
+  <data name="GeneralStatus_Bremennost" xml:space="preserve">
+    <value>Бременност</value>
+  </data>
+  <data name="GeneralStatus_Diabet" xml:space="preserve">
+    <value>Диабет</value>
+  </data>
+  <data name="GeneralStatus_Hipertonia" xml:space="preserve">
+    <value>Хипертония</value>
+  </data>
+  <data name="GeneralStatus_Infarct" xml:space="preserve">
+    <value>Инфаркт</value>
+  </data>
+  <data name="GeneralStatus_Insult" xml:space="preserve">
+    <value>Инсулт</value>
+  </data>
+  <data name="GeneralStatus_OnkologichniZab" xml:space="preserve">
+    <value>Онкологични заб.</value>
+  </data>
+  <data name="ExtraStatus_FParastezia" xml:space="preserve">
+    <value>Парастезия</value>
+  </data>
+  <data name="ExtraStatus_FPareza" xml:space="preserve">
+    <value>Пареза</value>
+  </data>
+  <data name="ExtraStatus_Koja" xml:space="preserve">
+    <value>Кожа</value>
+  </data>
+  <data name="ExtraStatus_LicevaSimetria" xml:space="preserve">
+    <value>Лицева симетрия</value>
+  </data>
+  <data name="ExtraStatus_RVL" xml:space="preserve">
+    <value>РЛВ</value>
+  </data>
+  <data name="ExtraStatus_TDM" xml:space="preserve">
+    <value>ТДМ</value>
+  </data>
+  <data name="ExtraStatus_Trizmus" xml:space="preserve">
+    <value>Тризмус</value>
+  </data>
+  <data name="ExtraStatus_Ustni" xml:space="preserve">
+    <value>Устни</value>
+  </data>
+  <data name="Diagnosis_Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Diagnosis_Description" xml:space="preserve">
+    <value>Диагноза</value>
+  </data>
+  <data name="DiagnosisModel_CodeRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="DiagnosisModel_DescriptionRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="Diagnosis_IsVisible" xml:space="preserve">
+    <value>Видимост</value>
+  </data>
+  <data name="TreatmentModel_CodeRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="TreatmentModel_DescriptionRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="Treatment_Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Treatment_Description" xml:space="preserve">
+    <value>Лечение</value>
+  </data>
+  <data name="Treatment_IsVisible" xml:space="preserve">
+    <value>Видимост</value>
+  </data>
+  <data name="Treatment_Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Diagnosis_Visualization" xml:space="preserve">
+    <value>Визуализация</value>
+  </data>
+  <data name="Operation_AdditionalInfo" xml:space="preserve">
+    <value>Доп. информация</value>
+  </data>
+  <data name="Operation_DiagnosisDateTime" xml:space="preserve">
+    <value>Дата на диагнозата</value>
+  </data>
+  <data name="Operation_Tooth" xml:space="preserve">
+    <value>Зъб</value>
+  </data>
+  <data name="Operation_TreatmentDateTime" xml:space="preserve">
+    <value>Дата на лечението</value>
+  </data>
+  <data name="Operation_Diagnosis" xml:space="preserve">
+    <value>Диагноза</value>
+  </data>
+  <data name="Operation_ToothRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="Operation_Treatment" xml:space="preserve">
+    <value>Лечение</value>
+  </data>
+  <data name="Operation_Position" xml:space="preserve">
+    <value>Позиция</value>
+  </data>
+  <data name="Operation_DiagnosisRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="Treatment_Visualization" xml:space="preserve">
+    <value>Визуализация</value>
+  </data>
+  <data name="PersonalData_Dentist" xml:space="preserve">
+    <value>Стоматолог</value>
+  </data>
+  <data name="PersonalDataModel_DentistRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="PersonalData_LastDentist" xml:space="preserve">
+    <value>Предишен стоматолог</value>
+  </data>
+  <data name="Operation_Dentist" xml:space="preserve">
+    <value>Стом.</value>
+  </data>
+  <data name="Operation_DentistRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="Operation_Quantity" xml:space="preserve">
+    <value>Бр.</value>
+  </data>
+  <data name="Operation_Teeth" xml:space="preserve">
+    <value>Зъби</value>
+  </data>
+  <data name="PlanningItem_DentistRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="PlanningItem_PatientRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="PersonalData_NextMedicalCheckUp" xml:space="preserve">
+    <value>ПП</value>
+  </data>
+  <data name="Contacts_Dentist" xml:space="preserve">
+    <value>Стом.</value>
+  </data>
+  <data name="Contacts_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Contacts_Fax" xml:space="preserve">
+    <value>Факс</value>
+  </data>
+  <data name="Contacts_FirstName" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="Contacts_LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="Contacts_MobileTelephone" xml:space="preserve">
+    <value>М. Телефон</value>
+  </data>
+  <data name="Contacts_SecondName" xml:space="preserve">
+    <value>Презиме</value>
+  </data>
+  <data name="Contacts_Telephone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Contacts_EmailIsInvalidErrorMessage" xml:space="preserve">
+    <value>E-mail адреса е с невалиден формат</value>
+  </data>
+  <data name="Contacts_FirstNameRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+</root>

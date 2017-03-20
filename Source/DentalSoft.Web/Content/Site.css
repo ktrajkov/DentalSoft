@@ -1,0 +1,894 @@
+﻿/* reset everything to the default box model */
+
+*,
+:before,
+:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* set a border-box model only to elements that need it */
+
+.form-control, /* if this class is applied to a Kendo UI widget, its layout may change */
+.container,
+.container-fluid,
+.row,
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1250px;
+}
+
+.col-md-1-2 {
+    width: 5.33%;
+}
+
+.col-md-1-5 {
+    width: 10%;
+}
+
+.col-md-2-5 {
+    width: 16.66%;
+}
+
+.col-md-8-5 {
+    width: 77%;
+}
+
+.k-textbox,
+.k-combobox,
+.k-numerictextbox,
+.k-dropdown {
+    width: 100%;
+}
+
+.k-edit-form-container {
+    width: 100%;
+}
+
+.k-checkbox-label {
+    display: inline;
+    font-size: 22px;
+}
+
+.k-upload-empty {
+    border: none;
+}
+
+.row {
+    margin-top: 15px;
+}
+
+.nested-row {
+    margin-top: 0;
+}
+
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.rel-cont{
+    position:relative;
+    width:0;
+    height:0;
+}
+
+/* Success template */
+.k-notification-wrap {
+    height: 26px;
+    text-align: center;
+    font-size: large;
+}
+
+    .k-notification-wrap > .k-i-note {
+        margin-bottom: 2px;
+    }
+
+.k-animation-container {
+    z-index: 11000 !important;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+}
+
+label {
+    font-size: 18px;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+/* Home style - BEGIN*/
+.wrap-doctors {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+}
+
+.inner-wrap-doctors {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    margin: 40px;
+    padding: 40px;
+}
+
+.wrap-thumbnail {
+    width: 230px;
+    display: inline-block;
+    margin: 20px;
+}
+
+    .wrap-thumbnail img, .wrap-thumbnail .thumbnail {
+        border-radius: 4px;
+        -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    }
+
+.btn-admin > a {
+    margin-top: 70px;
+}
+/*Home style - END*/
+
+textarea {
+    width: 100%;
+}
+
+
+/*#region Admin style */
+.glyphicon {
+    padding-right: 10px;
+}
+/*#endregion */
+
+/*#region Diagnoses Style */
+
+.tooth-chart-editor {
+    margin-top: 0;
+}
+
+    .tooth-chart-editor > div {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+#ToothEditorModel_Type-list {
+    height: 300px !important;
+}
+
+/*#endregion */
+
+/*#region Treatments Style */
+
+#diagnoses-listView {
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.vertical-splitter {
+    height: 800px;
+}
+
+/*#endregion */
+
+/*#region Patient Style */
+
+.patients-grid .k-grid-content {
+    height: 99% !important;
+    overflow-y: auto;
+}
+
+.patients-grid .k-grid-header {
+    padding-right: 0 !important;
+}
+
+.patient-popup {
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 99% !important;
+    min-width: 1200px !important;
+    padding-top: 0 !important;
+    border: none !important;
+}
+
+    .patient-popup .k-content {
+        padding-top: 0 !important;
+    }
+
+
+    .patient-popup .k-edit-buttons {
+        border: none;
+    }
+
+
+#patient-container .k-header {
+    background-color: white !important;
+}
+
+#patient-tabstrip {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+    #patient-tabstrip .k-tabstrip-items {
+        background-color: white;
+    }
+
+    #patient-tabstrip .k-content {
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+
+
+    #patient-tabstrip li span.not-empty {
+        width: 80%;
+        height: 3px;
+        background-color: red;
+        position: absolute;
+        display: block;
+        left: 10%;
+        bottom: 3px;
+    }
+
+/*#region Personal Data  Style */
+input.egn, input.egn:hover {
+    background-image: url(../Content/Images/inputEGN.png);
+    width: 142px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    font-family: courier new, sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    padding-left: 1px;
+    padding-right: 2px;
+    text-align: left;
+}
+
+#personal-form .primary-patient-container {
+    padding-top: 33px;
+}
+
+   
+
+
+    #personal-form .small-label-checkbox{
+          font-size: 18px;
+    }
+/*#endregion */
+
+/* #region Status Style (General, Extraoral and Intraoral*/
+#intra-status-container, #extra-status-container {
+    position: relative;
+    width: 1200px;
+}
+
+    #general-status-container .category-container,
+    #extra-status-container .category-container {
+        padding: 10px 0 0 180px;
+        width: 480px;
+    }
+
+.label-category {
+    font-size: 20px;
+    margin-left: -18px;
+}
+
+.desease-container {
+    margin-left: 0 !important;
+}
+
+.desease-info-container textarea {
+    height: 80%;
+}
+
+.status-info-container {
+    padding-left: 180px;
+    height: 60px;
+    width: 800px;
+}
+
+.status-save-button {
+    padding-left: 180px;
+}
+
+/*#region Extra Status Style */
+
+#extra-status-container > div:nth-last-child(3) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 480px;
+}
+
+/*#endregion */
+
+/*#region Intra Status Style */
+
+#intra-status-container .k-multiselect {
+    width: 480px;
+    margin-bottom: 10px;
+}
+
+#intra-status-container .multi-select-container:nth-child(even) {
+    float: right;
+}
+
+#intra-status-container .multi-select-container:nth-child(odd) {
+    float: left;
+    padding-left: 180px;
+}
+
+/*#endregion */
+
+/* #endregion*/
+
+/*#region Teeth Status Style */
+
+
+
+#tooth-images-upload {
+    width: 100%;
+    height: 100%;
+}
+
+#toot-images-upload-container .k-upload-button {
+    display: inline;
+}
+
+#toot-images-upload-container .k-upload-status-total {
+    visibility: hidden;
+}
+
+#operation-grid {
+    min-width: 1220px;
+    overflow-x: auto;
+}
+
+#Operation {
+    min-width: 1200px;
+    overflow-x: hidden;
+}
+
+    #Operation.k-grid table {
+        table-layout: fixed;
+    }
+
+    #Operation .k-header {
+        padding: 0.1em;
+    }
+
+.k-grid-header-wrap {
+    width: 98.6% !important;
+}
+
+.k-grid-footer-wrap {
+    width: 98% !important;
+}
+
+#Operation .k-grid-content {
+    overflow-x: hidden;
+}
+
+#Operation .filter-teeth-checkbox {
+    display: inline;
+    padding-left: 20px;
+}
+
+    #Operation .filter-teeth-checkbox label {
+        font-size: larger;
+    }
+
+#Operation #clear-selected-button {
+    margin-left: 30px;
+}
+
+#clear-selected-button .glyphicon {
+    padding: 0;
+}
+
+#Operation #patient-name-container {
+    display: inline;
+    float: right;
+    padding-right: 20px;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#Operation td {
+    padding: .1em .1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#Operation .k-button {
+    min-width: 40px;
+}
+
+#OperationPosition-list {
+    height: 300px !important;
+}
+
+    #OperationPosition-list li:nth-child(6) {
+        border-bottom: 2px solid black;
+    }
+
+    #OperationPosition-list li:nth-child(8) {
+        border-bottom: 2px solid black;
+    }
+
+
+/*#endregion */
+
+/*#region Financial Plan Style*/
+
+
+#financial-form .k-content {
+    height: 400px !important;
+}
+
+#financial-form .k-combobox {
+    width: 140px !important;
+}
+
+/*#endregion*/
+
+/*#region Image Gallery Style */
+
+.image-gallery-container {
+    margin: 41px 0 0 0;
+    padding: 10px;
+    text-align: center;
+}
+
+    .image-gallery-container .image-galery-list-view img {
+        display: block;
+        width: 100%;
+        border: 1px solid transparent;
+        -moz-transition: all 0.025s ease;
+        -webkit-transition: all 0.025s ease;
+        -o-transition: all 0.025s ease;
+        transition: all 0.025s ease;
+    }
+
+
+    .image-gallery-container .image-galery-list-view li {
+        display: inline-block;
+        width: 10%;
+        padding: 6px;
+        margin: 10px;
+        cursor: pointer;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -o-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+        -moz-transition: all 0.025s ease;
+        -webkit-transition: all 0.025s ease;
+        -o-transition: all 0.025s ease;
+        transition: all 0.025s ease;
+    }
+
+
+        .image-gallery-container .image-galery-list-view li:hover {
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6813f ), color-stop(100%, #f35a03));
+            background-image: -webkit-linear-gradient(#f6813f, #f35a03);
+            background-image: -moz-linear-gradient(#f6813f, #f35a03);
+            background-image: -o-linear-gradient(#f6813f, #f35a03);
+            background-image: -ms-linear-gradient(#f6813f, #f35a03);
+            background-image: linear-gradient(#f6813f, #f35a03);
+            -moz-box-shadow: 0 0 0 1px #f35a03, inset 0 1px 0 #f6813f, 0 1px 5px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: 0 0 0 1px #f35a03, inset 0 1px 0 #f6813f, 0 1px 5px rgba(0, 0, 0, 0.6);
+            -o-box-shadow: 0 0 0 1px #f35a03, inset 0 1px 0 #f6813f, 0 1px 5px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 1px #f35a03, inset 0 1px 0 #f6813f, 0 1px 5px rgba(0, 0, 0, 0.6);
+        }
+
+            .image-gallery-container .image-galery-list-view li:hover img {
+                border: 1px solid #f35a03;
+            }
+
+.image-galery-list-view {
+    border: none;
+}
+
+
+/*#endregion */
+
+/*#endregion */
+
+/*#region Plan Style */
+
+.k-event, k-task {
+    border-radius: 2px;
+    border: solid 1px rgba(100, 100, 100, 0.5);
+    -webkit-box-shadow: 0px 2px 2px rgba(100, 100, 100, 0.5);
+    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.7);
+    background-image: none, linear-gradient(rgba(255, 255, 255, 0.6) 0, rgba(255, 255, 255, 0) 100%);
+    background-position: 50% 50%, 50% 50%;
+    background-repeat: repeat, repeat;
+    line-height: 20px;
+}
+
+.k-scheduler-table td {
+    height: 40px !important;
+}
+
+#scheduler .k-today {
+    background-color: #FFFFE7;
+}
+
+#scheduler td .k-state-selected {
+    background-color: #f35800;
+}
+
+#scheduler .k-event.k-state-selected {
+    background-color: #f35800;
+    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) );
+}
+
+#scheduler .k-current-time {
+    height: 10px !important;
+}
+
+#scheduler .k-scheduler-toolbar {
+    height: 28px;
+    line-height: 22px;
+    padding: 4px;
+    margin-right: 555px;
+}
+
+#scheduler .k-scheduler-views {
+    padding-right: 10px;
+}
+
+/*#region Plan-Template Style */
+.plan-template .item-title {
+    display: block;
+    width: 75%;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.plan-template .item-patient {
+    width: 73%;
+    float: left;
+    display: inline-block;
+    line-height: 23px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.plan-template .item-phone {
+    display: inline;
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+
+
+.k-scheduler-dayview .plan-template .item-patient {
+    width: 53%;
+}
+
+.k-scheduler-dayview .plan-template .item-phone {
+    width: 33%;
+    display: inline-block;
+    padding-left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.k-scheduler-dayview .plan-template .item-title {
+    line-height: 23px;
+}
+
+.plan-template.Reminder {
+    animation: blinker 1.2s linear infinite;
+}
+
+    .plan-template.Reminder .item-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.plan-template.Done .item-patient, .plan-template.Done .item-title {
+    text-decoration: line-through;
+}
+
+.plan-template.Completed .item-patient, .plan-template.Completed .item-title {
+    text-decoration: line-through;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.0;
+    }
+}
+
+.k-event span.status {
+    float: right;
+    padding-top: 5px;
+    padding-right: 3px;
+}
+/*#endregion*/
+
+/*#region Edit-Template Style */
+.edit-plan-template #patinent-link-container > span {
+    width: 80%;
+}
+
+.edit-plan-template #patient-link {
+    margin-right: 10px;
+}
+
+    .edit-plan-template #patient-link span {
+        vertical-align: bottom;
+    }
+
+#PlanItemStatus_listbox li:nth-child(5) {
+    border-bottom: 2px solid black;
+}
+
+#new-patient-window {
+    display: none;
+    width: 300px;
+    height: auto;
+}
+
+/*#endregion*/
+
+/*#region Filters Style */
+#filter-scheduler {
+    width: 550px;
+    float: right;
+    display: inline-block;
+    margin-top: 1px;
+    padding: 4px;
+    -webkit-font-smoothing: antialiased;
+    background-clip: border-box, border-box;
+    background-color: rgb(227, 227, 227);
+    background-image: none, linear-gradient(rgba(255, 255, 255, 0.6) 0px, rgba(255, 255, 255, 0) 100%);
+    background-position: 50% 50%, 50% 50%;
+    background-repeat: repeat, repeat;
+    border-bottom-color: rgb(197, 197, 197);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(197, 197, 197);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgb(197, 197, 197);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgb(197, 197, 197);
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: content-box;
+    color: rgb(46, 46, 46);
+    font-family: 'Source Sans Pro', Calibri, Candara, Arial, sans-serif;
+    font-size: 15px;
+    height: 28px;
+    line-height: 22px;
+}
+
+    #filter-scheduler #dentists-container {
+        display: inline;
+        padding-left: 20px;
+    }
+
+        #filter-scheduler #dentists-container span {
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 34px;
+        }
+
+        #filter-scheduler #dentists-container label {
+            margin: 0;
+        }
+
+            #filter-scheduler #dentists-container label input {
+                display: none;
+            }
+
+            #filter-scheduler #dentists-container label span {
+                line-height: normal;
+                padding-top: 0;
+                height: 26px;
+            }
+
+            #filter-scheduler #dentists-container label:nth-of-type(1) input:checked + span {
+                color: #fff;
+                background-color: #f35800;
+                border-color: #f35800;
+            }
+
+            #filter-scheduler #dentists-container label:nth-of-type(2) input:checked + span {
+                color: #fff;
+                background-color: #51a0ed;
+                border-color: rgb(81, 160, 237);
+            }
+
+                #filter-scheduler #dentists-container label:nth-of-type(2) input:checked + span:active {
+                    background-color: rgb(12, 79, 143);
+                    border-color: rgb(12, 79, 143);
+                }
+
+            #filter-scheduler #dentists-container label:nth-of-type(2) input + span:active {
+                background-color: rgb(12, 79, 143);
+                border-color: rgb(12, 79, 143);
+            }
+
+    #filter-scheduler .patient-container .k-combobox {
+        width: 200px;
+    }
+
+    #filter-scheduler .status-container .k-dropdown {
+        width: 200px;
+    }
+
+#FilterStatus_listbox li:nth-child(5) {
+    border-bottom: 2px solid black;
+}
+
+#filter-scheduler .k-input,
+#filter-scheduler .k-input .k-select {
+    height: 21px;
+    line-height: 20px;
+}
+
+#filter-scheduler .k-dropdown-wrap .k-select {
+    line-height: 24px !important;
+    height: 27px !important;
+    min-height: 27px !important;
+}
+
+#filter-scheduler .k-dropdown-wrap {
+    line-height: 24px !important;
+    height: 27px !important;
+}
+
+/*#endregion*/
+
+/*#region Copy/Cut Style */
+.tile-cut {
+    opacity: 0.5;
+}
+
+.tile-copy {
+    border: 2px solid rgb(0, 0, 0) !important;
+    border: 2px solid rgba(0, 0, 0, .8) !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+/*#endregion*/
+
+/*#region Phonebook*/
+#Contacts .k-header {
+    padding: 0.1em;
+}
+
+#Contacts .k-filter-row th {
+    padding: 0.1em;
+}
+
+#Contacts .k-operator-hidden .k-button {
+    min-width: 20px;
+}
+
+#Contacts .k-button {
+    min-width: 40px;
+}
+
+#Contacts td {
+    padding: .1em .1em;
+}
+
+#CategoryContactsListView {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+    #CategoryContactsListView .category-contact {
+        height: 35px;
+    }
+
+    #CategoryContactsListView .contact-container {
+        height: 100%;
+    }
+
+        #CategoryContactsListView .contact-container > span {
+            display: inline;
+            vertical-align: middle;
+        }
+
+/*#endregion*/
+/*#endregion */

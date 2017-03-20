@@ -1,0 +1,13 @@
+﻿@model DentalSoft.Data.Contracts.Patientes.PatientModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section js{
+    @Scripts.Render("~/bundles/Patients")
+}
+
+@section styles{
+    @Styles.Render("~/Content/Patients")
+}
+@Html.Partial("PatientDetailView",Model)
+

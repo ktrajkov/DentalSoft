@@ -1,0 +1,151 @@
+﻿@model DentalSoft.Data.Contracts.Patientes.PatientModel
+
+@using DentalSoft.Data.Models.Images
+@using DentalSoft.Data.Contracts.Patientes
+
+<div id="patient-container">
+    <div class="k-header">
+        <div id="patient-tabstrip">
+            <ul>
+                <li class="k-state-active  teeth-status-tab">
+                    @Strings.Patient_ЗъбенСтатус
+                </li>
+                <li>
+                    @Strings.Patient_PersonalData
+                </li>
+                <li class="status-tabs" data-status="General">
+                    @Strings.Patient_BaseStatus
+                </li>
+                <li class="status-tabs" data-status="Extraoral">
+                    @Strings.Patient_ЕкстрапраленСтатус
+                </li>
+                <li class="status-tabs" data-status="Intraoral">
+                    @Strings.Patient_ИнтраораленСтатус
+                </li>
+                <li>
+                    @Strings.Patient_ПарадонталенСтатус
+                </li>
+                <li>
+                    @Strings.Patient_FinancialPlan
+                </li>
+                <li class="pull-right gallery-tabs" data-type=@ImageType.CT>
+                    @Strings.Patient_CT
+                </li>
+                <li class="pull-right gallery-tabs" data-type=@ImageType.OPG>
+                    @Strings.Patient_OPG
+                </li>
+                <li class="pull-right gallery-tabs" data-type=@ImageType.Xray>
+                    @Strings.Patient_XrayImages
+                </li>
+                <li class="pull-right gallery-tabs" data-type=@ImageType.Extraoral>
+                    @Strings.Patient_ExtraoralsImages
+                </li>
+                <li class="pull-right gallery-tabs" data-type=@ImageType.Intraoral>
+                    @Strings.Patient_IntraoralsImages
+                </li>
+
+            </ul>
+            <div>
+                <div class="teeth-status-container">
+                    @Html.Partial("TeethStatusDetailView")
+                </div>
+            </div>
+            <div>
+                <div class="personal-info-container">
+                    @Html.Partial("PersonalDetailView", Model.PersonalDataModel)
+                </div>
+            </div>
+            <div>
+                <div id="general-status-container">
+
+                </div>
+            </div>
+            <div>
+                <div id="extra-status-container">
+
+                </div>
+            </div>
+            <div>
+                <div id="intra-status-container">
+
+                </div>
+            </div>
+            <div>
+                <div class="para-status-container">
+                </div>
+            </div>
+            <div>
+                <div>
+                    @Html.Partial("FinancialPlanDetailView", Model.FinancialPlanModel ?? new FinancialPlanModel { })
+                </div>
+            </div>
+            <div>
+                <div>
+                    @Html.Partial("ImageGalleryDetailView")
+                </div>
+            </div>
+            <div>
+                <div>
+                    @Html.Partial("ImageGalleryDetailView")
+                </div>
+            </div>
+            <div>
+                <div>
+                    @Html.Partial("ImageGalleryDetailView")
+                </div>
+            </div>
+            <div>
+                <div>
+                    @Html.Partial("ImageGalleryDetailView")
+                </div>
+            </div>
+            <div>
+                <div>
+                    @Html.Partial("ImageGalleryDetailView")
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var patientModelView = new PatientModelView({
+        model : @Html.Raw(Json.Encode(Model)),
+        isPopUp:@Html.Raw(Json.Encode(ViewData["IsPopup"])),
+        selectors: {
+            patientGridId: 'PatientsGrid', 
+            patientTabstripId: 'patient-tabstrip',
+            patientContaineId: 'patient-container',
+            galleryTabs: 'gallery-tabs',
+            statusTabs: 'status-tabs',
+            generalStatusContainer:'general-status-container',
+            extraStatusContainer:'extra-status-container',
+            intraStatusContainer: 'intra-status-container',
+            imageGalleryContainerId: "image-gallery-container",
+            imageGalleryTamplate: "image-gallery-template",
+            imageGalleryId: "image-galery-list-view",
+            images: "pics",
+            deleteButtons: "delete-button",
+            uploadButton: "upload-button",
+        },
+        imageType: {
+            CT: '@ImageType.CT',
+            OPG: '@ImageType.OPG',
+            Xray: '@ImageType.Xray',
+            Extraoral: '@ImageType.Extraoral',
+            Intraoral: '@ImageType.Intraoral',
+        },
+        urls: {
+            imageList: '@(Url.Action("List","Images"))',
+            imageSave: '@(Url.Action("Save","Images"))',
+            imageRemove: '@(Url.Action("Remove","Images"))',
+            deseaseList: '@(Url.Action("List","Status"))',
+            deseasesUpdate: '@(Url.Action("DeseasesUpdate", "Patient"))',
+        },
+        texts: {
+            select: '@Strings.Patient_Status_Select',
+            uploadButton: '@Strings.PatientModel_AddImage',
+        }
+    }).start();
+
+</script>

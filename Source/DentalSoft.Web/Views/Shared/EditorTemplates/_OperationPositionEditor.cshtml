@@ -1,0 +1,19 @@
+﻿@using DentalSoft.Web.Infrastructure.Extensions;
+
+<script>
+    function onPositionOpen(e) {
+        e.sender.list.width(145);
+    }
+</script>
+
+@(Html.Kendo().DropDownListFor(p => p)
+    .Name("OperationPosition")
+    .ValuePrimitive(true)
+    .OptionLabel(Strings.Position)
+    .Value("")
+    .DataTextField("Text")
+    .DataValueField("Value")
+    .HtmlAttributes(new { data_bind = "value: Position" })
+    .BindTo(typeof(DentalSoft.Data.Models.Operation.PositionType).EnumToSelectList())
+        .Events(events => events.Open("onPositionOpen"))
+)

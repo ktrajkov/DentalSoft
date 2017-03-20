@@ -1,0 +1,3 @@
+﻿@model DentalSoft.Data.Contracts.Patientes.PatientModel
+
+@Html.Partial("PatientDetailView", Model, new ViewDataDictionary(this.ViewData) { { "IsPopup", true } })

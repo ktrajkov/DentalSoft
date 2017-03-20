@@ -1,0 +1,23 @@
+﻿<script>  
+    function onDentistDataBound(e) {
+        var grid = $("#Operation").data("kendoGrid");
+        var dataItem = grid.dataItem(e.sender.element.closest("tr"));
+        if (dataItem.isNew()) {
+            this.value(patientModelView._model.PersonalDataModel.DentistId);
+        }
+    }  
+</script>
+
+@(Html.Kendo().DropDownListFor(d=>d)
+    .Name("OperationDentist")
+    .ValuePrimitive(true)  
+    .DataTextField("Text")
+    .DataValueField("Value")
+    
+    .DataSource(dataSource => dataSource
+        .Read(read => read.Action("List", "Dentist").Type(HttpVerbs.Post))
+        )
+    .Events(events =>events.DataBound("onDentistDataBound"))        
+    .HtmlAttributes(new { data_bind = "value: DentistId" })
+)
+@(Html.ValidationMessageFor(d => d))

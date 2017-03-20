@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Diagnosis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using DentalSoft.Common.Extensions;
+
+<script src="~/Scripts/Views/ToothChart/ToothChartEditorView.js"></script>
+
+@(Html.Kendo().Grid<DentalSoft.Data.Contracts.Diagnoses.DiagnosisModel>
+    ()
+    .Name("DiagnosesGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(d => d.Code).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false))).Width(300);
+        columns.Bound(d => d.Descrtiption).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+        columns.Bound(d => d.IsVisible).Filterable(false)
+        .ClientTemplate(
+        "<input type='checkbox' disabled='disabled' value='#= IsVisible #' " +
+                    " # if (IsVisible) { #" +
+                "checked='checked'" +
+                "# } #" +
+                " />").Width(50);
+        columns.Bound(d => d.ToothEditorModel).Filterable(false)
+        .EditorTemplateName("_ToothChartEditor")
+        .ClientTemplate("#=toothChartTemplate(data)#")
+        .Width(400);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+    })
+
+    .ToolBar(toolbar => toolbar.Create().Text(Strings.Diagnosis_NewDiagnosis))
+    .Sortable()
+    .Pageable()
+    .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .PageSize(10)
+    .Model(model =>
+    {
+        model.Id(x => x.Id);
+        model.Field(x => x.ToothEditorModel).DefaultValue(new DentalSoft.Data.Contracts.Status.TeethStatus.ToothEditorModel());
+
+    })
+    .Create(create => create.Action("Create", "Diagnosis"))
+    .Read(read => read.Action("Read", "Diagnosis"))
+    .Update(update => update.Action("Update", "Diagnosis"))
+    .Destroy(destroy => destroy.Action("Delete", "Diagnosis"))
+    .Events(e =>
+    {
+        e.Error("error_handler");
+        e.RequestEnd("onKendoGridRequestEnd");
+    })
+    )
+)
+
+<script id="tooth-chart-template" type="text/x-kendo-template">
+    <div class="text-center">
+        #if(ToothEditorModel){#
+        #= ToothEditorModel.ChartTypeText ? ToothEditorModel.ChartTypeText : '' #
+        #= ToothEditorModel.ChartTypeText && ToothEditorModel.ColorTypeText?' | ':''#
+        #= ToothEditorModel.ColorTypeText ?ToothEditorModel.ColorTypeText: '' #
+        #}#
+    </div>
+</script>
+
+<script type="text/javascript">
+    var toothChartTemplate = kendo.template($('#tooth-chart-template').html());
+
+    $(function () {
+        new ToothChartEditorView({
+            selectors: {
+                grid: 'DiagnosesGrid',
+            },
+
+        }).start();
+    })
+</script>
+

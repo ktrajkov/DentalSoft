@@ -1,0 +1,106 @@
+﻿@using DentalSoft.Web.Infrastructure.Extensions;
+
+@{
+    ViewBag.Title = "Phonebook";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section js {
+    @Scripts.Render("~/Scripts/Views/Phonebook/PhonebookView.js")
+}
+<div class="vertical-splitter">
+    <div class="left-pane">
+        @(Html.Kendo().ListView<SelectListItem>()
+                    .Name("CategoryContactsListView")
+            .TagName("div")
+            .BindTo(typeof(DentalSoft.Data.Models.Contacts.ContactCategoryType).EnumToSelectList())
+            .ClientTemplateId("template-listView")
+            .Selectable(x => x.Mode(ListViewSelectionMode.Single))
+        )
+    </div>
+    <div id="contacts-grid-container">
+        @(Html.Kendo().Grid<DentalSoft.Data.Contracts.Contacts.ContactModel>()
+        .AutoBind(false)
+        .Name("Contacts")
+
+        .Columns(columns =>
+        {
+            columns.Bound(d => d.FirstName).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false))).Width(280);
+            columns.Bound(d => d.SecondName).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+            columns.Bound(d => d.LastName).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false))).Width(200);
+            columns.Bound(d => d.Telephone).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+            columns.Bound(d => d.MobileTelephonе).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+            columns.Bound(d => d.Fax).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+            columns.Bound(d => d.Email).Filterable(ftb => ftb.Cell(cell => cell.ShowOperators(false)));
+            columns.Bound(o => o.DentistInitials).Filterable(false)
+                    .EditorTemplateName("_ContactDentistEditor")
+                    .ClientTemplate("#if(DentistInitials){#<span title='#:DentistInitials#'>#:DentistInitials#</span>#}#")
+                    .Width(65);
+            columns.Command(command => { command.Edit().Text(" ").UpdateText(" ").CancelText(" "); command.Destroy().Text(" "); }).Width(105);
+
+        })
+        .Editable(x=>x.Mode(GridEditMode.InLine))
+        .ToolBar(toolbar => toolbar.Create().Text(Strings.Phonebook_NewContact))
+        .Sortable()
+        .Pageable()
+        .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+        .HtmlAttributes(new { @class = "" })
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(15)
+        .Model(model =>
+        {
+            model.Id(x => x.Id);
+
+        })
+             .Create(create => create.Action("Create", "Contact"))
+             .Read(read => read.Action("Read", "Contact"))
+             .Update(update => update.Action("Update", "Contact"))
+             .Destroy(destroy => destroy.Action("Delete", "Contact"))
+        .Events(e =>
+        {
+            e.Error("error_handler");
+            e.RequestEnd("onKendoGridRequestEnd");
+        })
+        )
+        )
+    </div>
+</div>
+
+<script type="text/x-kendo-tmpl" id="template-listView">
+    <div class="category-contact k-widget">
+        <div class="contact-container">
+            <span>${Text}</span>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        new PhonebookView({
+            selectors: {
+                categoriesListView: 'CategoryContactsListView',
+                contactsGridContainer: 'contacts-grid-container',
+                contactsGrid: 'Contacts',
+                splitterClass: 'vertical-splitter',
+                templateId: 'template-listView',
+                editTemplateId: 'edit-template-listView'
+            },
+            urls: {
+                contactRead: '@(Url.Action("Read","Contact"))',
+                contactCreate: '@(Url.Action("Create", "Contact"))',
+                contactUpdate: '@(Url.Action("Update", "Contact"))',
+                contactDelete: '@(Url.Action("Delete", "Contact"))',
+                contactCategoryRead: '@(Url.Action("Read", "ContactCategory"))',
+                contactCategoryCreate: '@(Url.Action("Create", "ContactCategory"))',
+                contactCategoryUpdate: '@(Url.Action("Update", "ContactCategory"))',
+                contactCategoryDelete: '@(Url.Action("Delete", "ContactCategory"))',
+            },
+            texts: {
+            },
+            settings: {
+                splitterLeftPaneWidth: '150px'
+            },
+
+        }).start();
+    })
+</script>

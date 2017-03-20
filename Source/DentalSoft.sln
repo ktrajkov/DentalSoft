@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{52E870F0-5A1A-46B7-BFAF-992605009176}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{5C6EBEF5-76CF-4425-89CC-57ACCB89CAEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{785716D4-531D-4943-A285-11132ED8911D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Common", "DentalSoft.Common\DentalSoft.Common.csproj", "{D1A8DE06-4479-42B6-B15F-BE7F486E7687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Data", "DentalSoft.Data\DentalSoft.Data.csproj", "{19CB36AD-69EF-4E8E-BEA9-B557DE20A7A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Data.Models", "DentalSoft.Models\DentalSoft.Data.Models.csproj", "{32A04F0D-AD57-49A6-907E-3952861F53EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Web.Infrastructure", "DentalSoft.Web.Infrastructure\DentalSoft.Web.Infrastructure.csproj", "{13E2025B-FA8E-4350-BC8F-246A9915483C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E7E6EE6C-2B7C-4B7A-A9BC-A6E4B65BD9BC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Web", "DentalSoft.Web\DentalSoft.Web.csproj", "{BFAABE93-26C4-48C0-ADFD-4EBB10168751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Data.Contracts", "DentalSoft.Data.Contracts\DentalSoft.Data.Contracts.csproj", "{C8806159-BD7C-4CD3-B774-68CECE88010E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5F462CD6-6FC6-4D47-9905-AB1E42A9F364}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Services", "DentalSoft.Services\DentalSoft.Services.csproj", "{94E4BC41-5F23-414E-8B3B-64CC3300E910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalSoft.Data.Services", "DentalSoft.Data.Services\DentalSoft.Data.Services.csproj", "{5FBD503B-62C0-4589-8FD8-74F5BF037E54}"
+EndProject
+Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1A8DE06-4479-42B6-B15F-BE7F486E7687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A8DE06-4479-42B6-B15F-BE7F486E7687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A8DE06-4479-42B6-B15F-BE7F486E7687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A8DE06-4479-42B6-B15F-BE7F486E7687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19CB36AD-69EF-4E8E-BEA9-B557DE20A7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19CB36AD-69EF-4E8E-BEA9-B557DE20A7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19CB36AD-69EF-4E8E-BEA9-B557DE20A7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19CB36AD-69EF-4E8E-BEA9-B557DE20A7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A04F0D-AD57-49A6-907E-3952861F53EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A04F0D-AD57-49A6-907E-3952861F53EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A04F0D-AD57-49A6-907E-3952861F53EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A04F0D-AD57-49A6-907E-3952861F53EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E2025B-FA8E-4350-BC8F-246A9915483C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E2025B-FA8E-4350-BC8F-246A9915483C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E2025B-FA8E-4350-BC8F-246A9915483C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E2025B-FA8E-4350-BC8F-246A9915483C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFAABE93-26C4-48C0-ADFD-4EBB10168751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFAABE93-26C4-48C0-ADFD-4EBB10168751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFAABE93-26C4-48C0-ADFD-4EBB10168751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFAABE93-26C4-48C0-ADFD-4EBB10168751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8806159-BD7C-4CD3-B774-68CECE88010E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8806159-BD7C-4CD3-B774-68CECE88010E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8806159-BD7C-4CD3-B774-68CECE88010E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8806159-BD7C-4CD3-B774-68CECE88010E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E4BC41-5F23-414E-8B3B-64CC3300E910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E4BC41-5F23-414E-8B3B-64CC3300E910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E4BC41-5F23-414E-8B3B-64CC3300E910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E4BC41-5F23-414E-8B3B-64CC3300E910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBD503B-62C0-4589-8FD8-74F5BF037E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBD503B-62C0-4589-8FD8-74F5BF037E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBD503B-62C0-4589-8FD8-74F5BF037E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBD503B-62C0-4589-8FD8-74F5BF037E54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1A8DE06-4479-42B6-B15F-BE7F486E7687} = {785716D4-531D-4943-A285-11132ED8911D}
+		{19CB36AD-69EF-4E8E-BEA9-B557DE20A7A2} = {52E870F0-5A1A-46B7-BFAF-992605009176}
+		{32A04F0D-AD57-49A6-907E-3952861F53EF} = {52E870F0-5A1A-46B7-BFAF-992605009176}
+		{13E2025B-FA8E-4350-BC8F-246A9915483C} = {5C6EBEF5-76CF-4425-89CC-57ACCB89CAEE}
+		{BFAABE93-26C4-48C0-ADFD-4EBB10168751} = {5C6EBEF5-76CF-4425-89CC-57ACCB89CAEE}
+		{C8806159-BD7C-4CD3-B774-68CECE88010E} = {52E870F0-5A1A-46B7-BFAF-992605009176}
+		{94E4BC41-5F23-414E-8B3B-64CC3300E910} = {5F462CD6-6FC6-4D47-9905-AB1E42A9F364}
+		{5FBD503B-62C0-4589-8FD8-74F5BF037E54} = {52E870F0-5A1A-46B7-BFAF-992605009176}
+	EndGlobalSection
+EndGlobal

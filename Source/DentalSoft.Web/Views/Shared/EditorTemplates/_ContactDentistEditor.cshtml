@@ -1,0 +1,12 @@
+﻿
+@(Html.Kendo().DropDownListFor(d => d)
+    .Name("Dentist")
+    .ValuePrimitive(true)
+    .DataTextField("Text")
+    .DataValueField("Value")
+
+    .DataSource(dataSource => dataSource
+        .Read(read => read.Action("List", "Dentist").Type(HttpVerbs.Post))
+        )
+    .HtmlAttributes(new { data_bind = "value: DentistId" })
+)

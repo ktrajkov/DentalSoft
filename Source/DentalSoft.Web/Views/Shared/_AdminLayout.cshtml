@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "_AdminLayout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@RenderSection("styles", required: false)
+@RenderSection("js", required: false)
+<style type="text/css">
+    .no-fouc {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    document.documentElement.className = 'no-fouc';
+</script>
+<script src="~/Scripts/Views/Admin/AdminView.js"></script>
+
+
+
+<ul id="menu">
+    <li><a href="@(Url.Action("Index","Patient"))"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@Strings.Patients</a></li>
+    <li><a href="@(Url.Action("Index","Plan"))"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>@Strings.Plan</a></li>
+    <li><a href="@(Url.Action("Index","Phonebook"))"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>@Strings.Phonebook</a></li>
+    <li><a href="@(Url.Action("Index", "Diagnosis"))"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>@Strings.Diagnoses</a></li>
+    <li><a href="@(Url.Action("Index", "Treatment"))"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>@Strings.Treatments</a></li>
+</ul>
+
+
+
+@*<button id="patients-button" class=" k-button">
+   
+</button>
+
+<button id="diagnoses-button" class=" k-button">
+    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>@Strings.Diagnoses
+</button>
+
+<button id="treatments-button" class=" k-button">
+    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>@Strings.Treatments
+</button>*@
+
+@RenderBody()
+
+<script type="text/javascript">  
+    $(function () {
+        $('.no-fouc').removeClass('no-fouc');
+
+        new AdminView({
+            selectors: {
+                menuId: 'menu',
+                patientsButtonId: 'patients-button',
+                diagnosesButtonId: 'diagnoses-button',
+                treatmentsButtonId: 'treatments-button',
+            },
+            urls: {
+                patints: '@(Url.Action("Index","Patient"))',
+                diagnoses: '@(Url.Action("Index","Diagnosis"))',
+                treatments: '@(Url.Action("Index","Treatment"))',
+            },
+            texts: {
+            }
+        }).start();  
+    })
+</script>

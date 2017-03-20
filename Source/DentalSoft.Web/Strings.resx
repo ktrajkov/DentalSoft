@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Administration" xml:space="preserve">
+    <value>Администрация</value>
+  </data>
+  <data name="ExtraStatus_Artroza" xml:space="preserve">
+    <value>Артроза</value>
+  </data>
+  <data name="ExtraStatus_Loksacia" xml:space="preserve">
+    <value>Локсация</value>
+  </data>
+  <data name="ExtraStatus_NFacialis" xml:space="preserve">
+    <value>Н. Фациалис</value>
+  </data>
+  <data name="ExtraStatus_NTrigeminus" xml:space="preserve">
+    <value>Н. Тригеминус</value>
+  </data>
+  <data name="ExtraStatus_Simetria" xml:space="preserve">
+    <value>Симетрия</value>
+  </data>
+  <data name="ExtraStatus_Stavi" xml:space="preserve">
+    <value>Стави</value>
+  </data>
+  <data name="ExtraStatus_SubLoksacia" xml:space="preserve">
+    <value>Сублоксация</value>
+  </data>
+  <data name="ExtraStatus_TParastezia" xml:space="preserve">
+    <value>Парастезия</value>
+  </data>
+  <data name="ExtraStatus_TPareza" xml:space="preserve">
+    <value>Пареза</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>Пациенти</value>
+  </data>
+  <data name="Patient_BaseStatus" xml:space="preserve">
+    <value>Общ Статус</value>
+  </data>
+  <data name="Patient_NewPacient" xml:space="preserve">
+    <value>Нов Пациент</value>
+  </data>
+  <data name="Patient_PersonalData" xml:space="preserve">
+    <value>Лични Данни</value>
+  </data>
+  <data name="Patient_ЕкстрапраленСтатус" xml:space="preserve">
+    <value>Екстраорален Статус</value>
+  </data>
+  <data name="Patient_ЗъбенСтатус" xml:space="preserve">
+    <value>Зъбен Статус</value>
+  </data>
+  <data name="Patient_ИнтраораленСтатус" xml:space="preserve">
+    <value>Интраорален Статус</value>
+  </data>
+  <data name="Patient_ПарадонталенСтатус" xml:space="preserve">
+    <value>Парадонтален Статус</value>
+  </data>
+  <data name="PersonalDataModel_SelectLocation" xml:space="preserve">
+    <value>Избери Град/Село</value>
+  </data>
+  <data name="PersonalDataModel_SelectMunicipality" xml:space="preserve">
+    <value>Избери Община</value>
+  </data>
+  <data name="PersonalDataModel_SelectRegion" xml:space="preserve">
+    <value>Избери Област</value>
+  </data>
+  <data name="ShortLeft" xml:space="preserve">
+    <value>л</value>
+  </data>
+  <data name="ShortRight" xml:space="preserve">
+    <value>д</value>
+  </data>
+  <data name="Diagnoses" xml:space="preserve">
+    <value>Диагнози</value>
+  </data>
+  <data name="Diagnosis_NewDiagnosis" xml:space="preserve">
+    <value>Нова Диагноза</value>
+  </data>
+  <data name="Treatments" xml:space="preserve">
+    <value>Лечения</value>
+  </data>
+  <data name="Treatment_NewTreatment" xml:space="preserve">
+    <value>Ново Лечение</value>
+  </data>
+  <data name="Tooth" xml:space="preserve">
+    <value>Зъб</value>
+  </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Диагноза</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Избери...</value>
+  </data>
+  <data name="Patient_CT" xml:space="preserve">
+    <value>КТ 3D</value>
+  </data>
+  <data name="Patient_ExtraoralsImages" xml:space="preserve">
+    <value>Е</value>
+  </data>
+  <data name="Patient_IntraoralsImages" xml:space="preserve">
+    <value>И</value>
+  </data>
+  <data name="Patient_OPG" xml:space="preserve">
+    <value>ОПГ</value>
+  </data>
+  <data name="Patient_XrayImages" xml:space="preserve">
+    <value>Р</value>
+  </data>
+  <data name="Patient_Status_Select" xml:space="preserve">
+    <value>Избери</value>
+  </data>
+  <data name="PatientModel_AddImage" xml:space="preserve">
+    <value>Добавяне на снимка</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Позиция</value>
+  </data>
+  <data name="TeethStatus_FilterByTeeth" xml:space="preserve">
+    <value>Филтър по избрани зъби</value>
+  </data>
+  <data name="Login_EmailIsInvalidErrorMessage" xml:space="preserve">
+    <value>E-mail адреса е с невалиден формат</value>
+  </data>
+  <data name="Login_EmailRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително!</value>
+  </data>
+  <data name="Login_LogIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="Login_PaswordRequiredErrorMessage" xml:space="preserve">
+    <value>Полето е задължително!</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Запомни паролата?</value>
+  </data>
+  <data name="Login_Invalidloginattempt" xml:space="preserve">
+    <value>Невалидни данни</value>
+  </data>
+  <data name="PersonalData_PrimaryPatient" xml:space="preserve">
+    <value>Първичен пациент</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>График</value>
+  </data>
+  <data name="Dentist" xml:space="preserve">
+    <value>Стоматолог</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Край</value>
+  </data>
+  <data name="Patient" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Старт</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Заглавие</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Plan_Agenda" xml:space="preserve">
+    <value>А</value>
+  </data>
+  <data name="Plan_Day" xml:space="preserve">
+    <value>Д</value>
+  </data>
+  <data name="Plan_Month" xml:space="preserve">
+    <value>М</value>
+  </data>
+  <data name="Plan_Timeline" xml:space="preserve">
+    <value>Т</value>
+  </data>
+  <data name="Plan_Week" xml:space="preserve">
+    <value>С</value>
+  </data>
+  <data name="Plan_WorkWeek" xml:space="preserve">
+    <value>р. С</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Plan_RequiredField" xml:space="preserve">
+    <value>Полето е задължително!</value>
+  </data>
+  <data name="Plan_NoItemCopied" xml:space="preserve">
+    <value>Часът не беше копиран</value>
+  </data>
+  <data name="Plan_NewPatient" xml:space="preserve">
+    <value>Нов</value>
+  </data>
+  <data name="Phonebook" xml:space="preserve">
+    <value>Тел. указател</value>
+  </data>
+  <data name="Phonebook_NewCategory" xml:space="preserve">
+    <value>Нова категория</value>
+  </data>
+  <data name="Phonebook_NewCategoryIsRequired" xml:space="preserve">
+    <value>Полето е задължително</value>
+  </data>
+  <data name="Phonebook_NewContact" xml:space="preserve">
+    <value>Нов контакт</value>
+  </data>
+  <data name="Patient_FinancialPlan" xml:space="preserve">
+    <value>Финансов план</value>
+  </data>
+  <data name="PersonalData_HasDeciduousTeeth" xml:space="preserve">
+    <value>Млечни зъби</value>
+  </data>
+</root>
